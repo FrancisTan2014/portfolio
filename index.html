@@ -3,142 +3,399 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Personal Website</title>
+    <title>Francis Tan</title>
     <style>
+        /* CSS Reset */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
+        /* Variables for consistent theming */
+        :root {
+            /* Color palette */
+            --primary-color: #2563eb;
+            --primary-hover: #1d4ed8;
+            --secondary-color: #64748b;
+            --accent-color: #8b5cf6;
+            --background-color: #f8fafc;
+            --surface-color: #ffffff;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --border-color: #e2e8f0;
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Base styles */
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            color: #333;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.7;
+            color: var(--text-primary);
+            background-color: var(--background-color);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
-        
+
+        /* Container layout */
         .container {
-            display: flex;
+            display: grid;
+            grid-template-columns: 1fr 3fr;
             min-height: 100vh;
-        }
-        
-        .sidebar {
-            width: 250px;
-            background-color: #f5f5f5;
-            border-right: 1px solid #e0e0e0;
-            padding: 20px;
-        }
-        
-        .sidebar h1 {
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-            color: #2c3e50;
-        }
-        
-        .sidebar nav ul {
-            list-style: none;
-        }
-        
-        .sidebar nav ul li {
-            margin-bottom: 10px;
-        }
-        
-        .sidebar nav ul li a {
-            color: #3498db;
-            text-decoration: none;
-            display: block;
-            padding: 5px 0;
-        }
-        
-        .sidebar nav ul li a:hover {
-            color: #2980b9;
-            text-decoration: underline;
-        }
-        
-        .main-content {
-            flex: 1;
-            padding: 40px;
-            max-width: 800px;
+            max-width: 1400px;
             margin: 0 auto;
         }
-        
-        .markdown-content {
-            margin-top: 20px;
+
+        /* Sidebar styles */
+        .sidebar {
+            background-color: var(--surface-color);
+            border-right: 1px solid var(--border-color);
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            box-shadow: var(--shadow-sm);
         }
-        
+
+        .sidebar h1 {
+            font-size: 1.875rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: var(--text-primary);
+            letter-spacing: -0.025em;
+        }
+
+        /* Navigation */
+        .sidebar nav ul {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .sidebar nav ul li {
+            margin-bottom: 0.75rem;
+        }
+
+        .sidebar nav ul li a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            display: block;
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            font-weight: 500;
+            transition: var(--transition);
+            border: 1px solid transparent;
+        }
+
+        .sidebar nav ul li a:hover {
+            color: var(--primary-color);
+            background-color: rgba(37, 99, 235, 0.05);
+            border-color: rgba(37, 99, 235, 0.2);
+            transform: translateX(4px);
+        }
+
+        /* Main content */
+        .main-content {
+            padding: 2rem;
+            background-color: var(--surface-color);
+            box-shadow: var(--shadow-sm);
+            margin: 1rem;
+            border-radius: 1rem;
+            max-width: 100%;
+        }
+
+        /* Hero section */
+        .hero {
+            text-align: center;
+            padding: 3rem 1rem;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 0.75rem;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            letter-spacing: -0.025em;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Markdown container */
+        .markdown-content {
+            margin-top: 2rem;
+        }
+
         /* Markdown styles */
         .markdown-content h1 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            color: #2c3e50;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin: 2rem 0 1.5rem;
+            color: var(--text-primary);
+            letter-spacing: -0.025em;
+            line-height: 1.2;
         }
-        
+
         .markdown-content h2 {
-            font-size: 1.5rem;
-            margin: 1.5rem 0 1rem;
-            color: #2c3e50;
+            font-size: 2rem;
+            font-weight: 600;
+            margin: 2rem 0 1.25rem;
+            color: var(--text-primary);
+            letter-spacing: -0.025em;
+            line-height: 1.3;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border-color);
         }
-        
+
         .markdown-content h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 1.75rem 0 1rem;
+            color: var(--text-primary);
+            letter-spacing: -0.025em;
+        }
+
+        .markdown-content h4 {
             font-size: 1.25rem;
-            margin: 1.5rem 0 1rem;
-            color: #2c3e50;
+            font-weight: 600;
+            margin: 1.5rem 0 0.875rem;
+            color: var(--text-primary);
         }
-        
+
         .markdown-content p {
-            margin-bottom: 1rem;
+            margin-bottom: 1.25rem;
+            color: var(--text-secondary);
+            font-size: 1rem;
         }
-        
+
         .markdown-content ul,
         .markdown-content ol {
-            margin: 1rem 0 1rem 2rem;
+            margin: 1.25rem 0;
+            padding-left: 1.75rem;
+            color: var(--text-secondary);
         }
-        
+
+        .markdown-content ul {
+            list-style-type: disc;
+        }
+
+        .markdown-content ol {
+            list-style-type: decimal;
+        }
+
         .markdown-content li {
             margin-bottom: 0.5rem;
+            padding-left: 0.5rem;
         }
-        
+
         .markdown-content a {
-            color: #3498db;
+            color: var(--primary-color);
             text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            border-bottom: 2px solid transparent;
         }
-        
+
         .markdown-content a:hover {
-            text-decoration: underline;
+            color: var(--primary-hover);
+            border-bottom-color: var(--primary-color);
         }
-        
+
+        /* Code styling */
         .markdown-content code {
-            background-color: #f8f9fa;
+            background-color: rgba(148, 163, 184, 0.1);
             padding: 0.2rem 0.4rem;
-            border-radius: 3px;
-            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
-            font-size: 0.9rem;
+            border-radius: 0.375rem;
+            font-family: 'Fira Code', 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--accent-color);
         }
-        
+
         .markdown-content pre {
-            background-color: #f8f9fa;
-            padding: 1rem;
-            border-radius: 5px;
+            background-color: #0f172a;
+            padding: 1.25rem;
+            border-radius: 0.75rem;
             overflow-x: auto;
-            margin: 1rem 0;
+            margin: 1.5rem 0;
+            box-shadow: var(--shadow-md);
         }
-        
+
         .markdown-content pre code {
             padding: 0;
             background-color: transparent;
+            color: #e2e8f0;
+            font-size: 0.875rem;
+            line-height: 1.6;
         }
-        
+
+        /* Blockquote */
         .markdown-content blockquote {
-            border-left: 4px solid #3498db;
-            padding-left: 1rem;
-            margin: 1rem 0;
-            color: #666;
+            border-left: 4px solid var(--primary-color);
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            background-color: rgba(37, 99, 235, 0.05);
+            border-radius: 0 0.5rem 0.5rem 0;
+            color: var(--text-secondary);
+            font-style: italic;
         }
-        
+
+        /* Horizontal rule */
         .markdown-content hr {
             border: none;
-            border-top: 1px solid #e0e0e0;
-            margin: 2rem 0;
+            border-top: 2px solid var(--border-color);
+            margin: 3rem 0;
+        }
+
+        /* Images */
+        .markdown-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 0.5rem;
+            margin: 1.5rem 0;
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Tables */
+        .markdown-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            overflow: hidden;
+            border-radius: 0.5rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .markdown-content th {
+            background-color: var(--background-color);
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+            color: var(--text-primary);
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .markdown-content td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-secondary);
+        }
+
+        .markdown-content tr:last-child td {
+            border-bottom: none;
+        }
+
+        .markdown-content tr:hover {
+            background-color: rgba(37, 99, 235, 0.025);
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 3rem;
+            padding: 2rem;
+            text-align: center;
+            color: var(--text-secondary);
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .social-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 1.125rem;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        /* Responsive design */
+        @media (max-width: 1024px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                border-right: none;
+                border-bottom: 1px solid var(--border-color);
+                padding: 1.5rem;
+            }
+
+            .main-content {
+                margin: 0;
+                border-radius: 0;
+                padding: 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .markdown-content h1 {
+                font-size: 2rem;
+            }
+
+            .markdown-content h2 {
+                font-size: 1.75rem;
+            }
+
+            .markdown-content h3 {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .sidebar,
+        .main-content {
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .markdown-content > * {
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
         }
     </style>
 </head>
@@ -153,7 +410,22 @@
             </nav>
         </aside>
         <main class="main-content">
+            <div class="hero">
+                <h1>Welcome to My Personal Website</h1>
+                <p>A modern, responsive website showcasing my work and thoughts</p>
+            </div>
             <div class="markdown-content" id="markdown-content"></div>
+            <footer>
+                <div class="footer-content">
+                    <p>© 2025 My Personal Website</p>
+                    <div class="social-links">
+                        <a href="#" target="_blank">GitHub</a>
+                        <a href="#" target="_blank">LinkedIn</a>
+                        <a href="#" target="_blank">Twitter</a>
+                        <a href="#" target="_blank">Email</a>
+                    </div>
+                </div>
+            </footer>
         </main>
     </div>
 
@@ -162,13 +434,59 @@
         // Function to load and render markdown file
         async function loadMarkdownFile(fileName) {
             try {
-                const response = await fetch(fileName);
-                if (!response.ok) {
-                    throw new Error(`File not found: ${fileName}`);
+                // Special handling for Daily.md to list diary entries
+                if (fileName === 'Daily.md') {
+                    const response = await fetch(fileName);
+                    if (!response.ok) {
+                        throw new Error(`File not found: ${fileName}`);
+                    }
+                    let markdownText = await response.text();
+                    
+                    // Get list of diary entries
+                    const diaryEntries = await getDiaryEntries();
+                    
+                    // Generate markdown for diary entries list
+                    let diaryListMarkdown = '\n';
+                    if (diaryEntries.length > 0) {
+                        diaryListMarkdown += '| Date | Title |\n';
+                        diaryListMarkdown += '|------|-------|\n';
+                        
+                        diaryEntries.forEach(entry => {
+                            const date = entry.date;
+                            const formattedDate = new Date(date).toLocaleDateString('en-US', {
+                                year: 'numeric',
+                                month: 'long',
+                                day: 'numeric'
+                            });
+                            const title = entry.title || `Diary Entry - ${formattedDate}`;
+                            const filePath = entry.filePath;
+                            
+                            // Create a custom link that will trigger the diary entry load
+                            diaryListMarkdown += `| ${formattedDate} | [${title}](#) |\n`;
+                        });
+                    } else {
+                        diaryListMarkdown += 'No diary entries found yet. Start writing!';
+                    }
+                    
+                    // Replace the placeholder with the actual diary list
+                    markdownText = markdownText.replace('<!-- Diary entries will be dynamically listed here -->', diaryListMarkdown);
+                    
+                    const htmlContent = marked.parse(markdownText);
+                    const markdownContent = document.getElementById('markdown-content');
+                    markdownContent.innerHTML = htmlContent;
+                    
+                    // Add event listeners to the diary entry links
+                    addDiaryEntryListeners(diaryEntries);
+                } else {
+                    // Normal markdown file loading
+                    const response = await fetch(fileName);
+                    if (!response.ok) {
+                        throw new Error(`File not found: ${fileName}`);
+                    }
+                    const markdownText = await response.text();
+                    const htmlContent = marked.parse(markdownText);
+                    document.getElementById('markdown-content').innerHTML = htmlContent;
                 }
-                const markdownText = await response.text();
-                const htmlContent = marked.parse(markdownText);
-                document.getElementById('markdown-content').innerHTML = htmlContent;
             } catch (error) {
                 document.getElementById('markdown-content').innerHTML = `
                     <h1>Error</h1>
@@ -176,13 +494,63 @@
                 `;
             }
         }
+        
+        // Function to get diary entries from JSON file
+        async function getDiaryEntries() {
+            try {
+                // Fetch diary entries from the JSON file
+                const response = await fetch('diary.json');
+                if (!response.ok) {
+                    throw new Error('Failed to fetch diary entries');
+                }
+                const diaryEntries = await response.json();
+                
+                // Sort by date in reverse chronological order (newest first)
+                return diaryEntries.sort((a, b) => new Date(b.date) - new Date(a.date));
+            } catch (error) {
+                console.error('Error getting diary entries:', error);
+                return [];
+            }
+        }
+        
+        // Function to add event listeners to diary entry links
+        function addDiaryEntryListeners(diaryEntries) {
+            const markdownContent = document.getElementById('markdown-content');
+            const links = markdownContent.querySelectorAll('a');
+            
+            links.forEach(link => {
+                if (link.textContent && diaryEntries.some(entry => 
+                    link.textContent.includes(entry.title) || 
+                    link.textContent.includes(new Date(entry.date).toLocaleDateString('en-US', {
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric'
+                    }))
+                )) {
+                    link.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        // Find the corresponding diary entry
+                        const diaryEntry = diaryEntries.find(entry => 
+                            link.textContent.includes(entry.title) || 
+                            link.textContent.includes(new Date(entry.date).toLocaleDateString('en-US', {
+                                year: 'numeric',
+                                month: 'long',
+                                day: 'numeric'
+                            }))
+                        );
+                        if (diaryEntry) {
+                            loadMarkdownFile(diaryEntry.filePath);
+                        }
+                    });
+                }
+            });
+        }
 
         // Function to load navigation from files
         async function loadNavigation() {
             try {
-                // In a real scenario, you might fetch a list of files from a server
-                // For simplicity, we'll just use a static list
-                const files = ['README.md', 'about.md', 'projects.md'];
+                // Main navigation files
+                const files = ['README.md', 'about.md', 'projects.md', 'Daily.md'];
                 const navList = document.getElementById('nav-list');
                 navList.innerHTML = '';
                 

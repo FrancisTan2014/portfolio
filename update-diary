@@ -1,0 +1,5 @@
+#!/bin/bash
+# Shortcut script to update diary.json
+
+# Run the Python script
+python3 generate-diary.py

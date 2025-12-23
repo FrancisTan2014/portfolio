@@ -4,8 +4,9 @@
   "description": "My personal website with markdown support",
   "main": "index.js",
   "scripts": {
-    "dev": "http-server -p 3000 -o",
-    "start": "http-server -p 3000"
+    "dev": "python3 -m http.server 3000",
+    "start": "python3 -m http.server 3000",
+    "diary": "python3 generate-diary.py"
   },
   "keywords": ["personal", "website", "markdown"],
   "author": "",
