@@ -1,29 +1,13 @@
-# Welcome to My Personal Website
+---
+layout: default
+title: Francis — Software Engineer
+---
 
-This is a simple personal website that displays markdown files as pages.
+## About
 
-## Features
+I am a senior software engineer working primarily with C# and ASP.NET Core.
 
-- 📝 **Markdown Support**: Write content in markdown and see it rendered beautifully
-- 📱 **Responsive Design**: Works well on all devices
-- 📂 **Multiple Pages**: Organize your content into different markdown files
-- ⚡ **Fast Loading**: Simple and lightweight architecture
+Over the past years, I have worked on internal tooling platforms used by engineers and PMs.  
+While these systems appear simple on the surface, they exposed me to the practical trade-offs of backend systems under real organizational constraints.
 
-## Getting Started
-
-1. Clone this repository
-2. Install dependencies: `npm install`
-3. Start the development server: `npm run dev`
-4. Open your browser and navigate to `http://localhost:3000`
-
-## Adding Pages
-
-To add a new page, simply create a new markdown file in the root directory and update the navigation in `index.html`.
-
-## Customization
-
-You can customize the styling by modifying the CSS in `index.html` or add more functionality by extending the JavaScript.
-
-## License
-
-MIT
+This site is a collection of short analyses and notes as I deliberately move toward system- and infrastructure-level engineering.
